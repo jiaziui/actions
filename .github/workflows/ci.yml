@@ -6,7 +6,8 @@ on:
     branches:
       - "**"       # 普通分支推送时运行代码检查
     tags:
-      - "V*.*.*"   # 打 tag 时运行发布检查
+      - "v*.*.*"   # 小写 v 触发
+      - "V*.*.*"   # 大写 V 触发
   pull_request:
   repository_dispatch:
 
