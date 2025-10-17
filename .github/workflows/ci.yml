@@ -38,6 +38,8 @@ jobs:
         uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ env.PYTHON_3 }}
+        run: |
+          python --version
 
       - name: Cache venv                        ## 缓存虚拟环境
         id: cache-venv
@@ -49,7 +51,7 @@ jobs:
 
       - name: Create Python virtual environment ## 创建 Python 虚拟环境
         run: |
-          cd $GITHUB_WORKSPACE
+          # cd $GITHUB_WORKSPACE
           python -m venv venv
           . venv/bin/activate
           pip install -r ${{ env.REQUIREMENTS_PATH }}
@@ -214,12 +216,12 @@ jobs:
 
   ci-status:
     runs-on: ubuntu-24.04
-    if: ${{ always() }}
     needs:
       - common
       - pylint
       - clang-tidy
       - release
+    if: always()
     steps:
       - name: Print job results
         run: |
