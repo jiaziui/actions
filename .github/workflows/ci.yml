@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 env:
-  PYTHON_3: "3.11"
+  PYTHON_3: "3.11.13"
   REQUIREMENTS_PATH: './.github/config/requirements.txt' ## 依赖文件路径
 
 jobs:
